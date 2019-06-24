@@ -1,0 +1,38 @@
+{% extends 'base/layout.html' %}
+{% block content %}
+<div class="container">
+    <form >
+        <div class="form-group">
+            <label for="fname">FirstName</label>
+            <input type="text" class="form-control" >
+        </div>
+    </form>
+    <form>
+        <div class="form-group">
+            <label for="lname">LastName</label>
+                <input type="text" class="form-control" >
+           </div>
+    </form>
+    <form>
+        <div class="form-group">
+        <label for="email">EmailAddress</label>
+        <input type="text" class="form-control" placeholder="name@gmail.com">
+        </div>
+    </form>
+    <form>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control">
+       </div>
+    </form>
+    <form>
+        <div class="form-group">
+        <label for="confirm">Confirm Password</label>
+        <input type="text" class="form-control">
+        </div>
+        <input type="submit" value="SignUp">
+    </form>
+    
+
+</div>
+{% endblock %}

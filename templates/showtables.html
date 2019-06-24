@@ -1,0 +1,57 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+
+<div class="container" style="background-color:black">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <!-- <input type="submit" class="btn btn-warning" value="Search"> -->
+        <button type="submit" class="btn btn-warning">Search</button>
+    </form>
+</div>
+
+{% if book %}
+
+<div class="container" style="background-color:#888">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Purchase_date</th>
+        <th scope="col">genre</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for bk in book %}
+            <tr>
+                <th scope="row">{{bk.id}}</th>
+                <td>{{bk.name}}</td>
+                
+                <td>{{bk.book_author}}</td>
+                <td>{{bk.purchase_date}}</td>
+               <td>
+                   {% for g in bk.genre.all %}
+                        {{g.name}}
+                    {% endfor %}
+                </td>
+                
+             
+                <td>
+                    <a href="/editbook/{{bk.id}}">
+                        <span class="text-muted">Edit</span>
+                    </a>
+                    <a href="/deletebook/{{bk.id}}">
+                        <span class="text-danger">Delete</span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

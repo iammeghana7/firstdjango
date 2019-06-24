@@ -1,0 +1,16 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+
+<div class ="container">
+    <p class="h2">Edit book details</p>
+<div class="mt-3">
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="update" class="btn btn-outline-success">
+</form>
+</div>
+</div>
+{% endblock %}
+
